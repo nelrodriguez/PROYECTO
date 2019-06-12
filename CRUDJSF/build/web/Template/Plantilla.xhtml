@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        <title>Sena 2017</title>
+        
+                <h:outputStylesheet library="css" name="planilla.css"/>
+                 <h:outputStylesheet library="css" name="styles.css"/>
+
+        <div class="ui-g-12">
+            <h1 id="gs">GESTION DE VENTAS</h1> 
+        </div>
+        
+        
+        
+        <f:event type="preRenderView" listener="#{plantillaController.verificarsesion()}"/>
+    </h:head>
+    <h:body id="cuerpo" >
+        <div id="top">
+            <ui:insert name="top">
+                <h:form styleClass="tabla">
+                    <p:menubar model="#{menuController.model}">
+                        <f:facet name="options">
+                    <p:commandButton actionListener ="#{menuController.cerrarsesion()}" icon="ui-icon-power"  action="/index?faces-redirect=true" title="Salir"/>
+                    
+                    
+                        </f:facet>
+                    </p:menubar> 
+                    
+                </h:form>
+            </ui:insert>
+        </div>
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                <h5>
+                    Bienvenido
+                </h5>
+            </ui:insert>
+        </div>
+        
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <center>
+            <ui:insert name="bottom">© Copyright Cesar13Doncel</ui:insert>
+            </center>
+        </div>
+
+    </h:body>
+
+</html>

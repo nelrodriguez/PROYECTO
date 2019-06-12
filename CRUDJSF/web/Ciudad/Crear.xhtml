@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="background-color: palegreen"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../Template/newTemplate1.xhtml">
+        
+
+            <ui:define name="content">
+                  <f:view>
+            <center><h:form>
+                 <p:growl id="message" showDetail="true" />
+                <h1><h:outputText value="Crear Ciudad"/></h1>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="IdCiudad:" for="idCiudad" />
+                    <h:inputText id="idCiudad" value="#{c.ciudad.idCiudad}" title="IdCiudad" required="true" requiredMessage="El id de la ciudad es requerida."><f:converter converterId="javax.faces.Integer"/></h:inputText>
+                    <p:outputLabel value="NombreCiudad:" for="nombreCiudad" />
+                    <p:inputText id="nombreCiudad" value="#{c.ciudad.nombreCiudad}" title="NombreCiudad" required="true" requiredMessage="El nombre de la ciudad es obligatorio."/>
+                    <p:commandButton action="#{c.crearCiudad()}" actionListener="#{mensajeControlador.addMessage('', 'Regsitro Exitoso')}" value="Registrar" update="message"></p:commandButton>
+                </p:panelGrid>
+                
+                </h:form></center> </f:view></ui:define>
+       
+        </ui:composition>
+
+    </h:body>
+</html>
+

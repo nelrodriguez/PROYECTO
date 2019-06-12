@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                 <p:growl id="menssage" showDetail="true"/>
+                <h1><h:outputText value="Actualizar"/></h1>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Id:" for="id" />
+                    <p:inputText id="id" value="#{p.profesor.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                    <p:outputLabel value="Nombre:" for="nombre" />
+                    <p:inputText id="nombre" value="#{p.profesor.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                    <p:outputLabel value="CorreoElectronico:" for="correoElectronico" />
+                    <p:inputText id="correoElectronico" value="#{p.profesor.correoElectronico}" title="CorreoElectronico" required="true" requiredMessage="The CorreoElectronico field is required."/>
+                    <p:outputLabel value="User:" for="user" />
+                    <p:inputText id="user" value="#{p.profesor.user}" title="User" required="true" requiredMessage="The User field is required."/>
+                    <p:outputLabel value="Clave:" for="clave" />
+                    <p:inputText id="clave" value="#{p.profesor.clave}" title="Clave" required="true" requiredMessage="The Clave field is required."/>
+                    <p:outputLabel value="IdCiudad:" for="idCiudad" />
+                    <p:selectOneMenu id="idCiudad" value="#{p.ciudad.idCiudad}" required="true" requiredMessage="The IdCiudad field is required.">
+                        
+                        <f:selectItems value="#{c.consultarCiudad()}" var="ciu" itemLabel="#{ciu.nombreCiudad}"  itemValue="#{ciu.idCiudad}"/>
+                    </p:selectOneMenu>
+                    <p:commandButton action="#{p.editarProfesor()}" value="Actualizar" actionListener="#{mensajeControlador.addMessage('','Datos Actualizados')}" update=""></p:commandButton>
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
